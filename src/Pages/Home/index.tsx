@@ -17,6 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "../../ColorModeSwitcher";
 import { Logo } from "../../Logo";
+import MedicalRecord from "../../Components/MedicalRecord";
+import ControlsBar from "../../Components/ControlsBar";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,31 +34,8 @@ const Home = () => {
           </Text>
         </VStack>
         <Button onClick={onOpen}>Open</Button>
-        <Drawer isOpen={isOpen} onClose={onClose}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
-
-            <DrawerBody>
-              <form
-                id="my-form"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  console.log("submitted");
-                }}
-              >
-                <Input name="nickname" placeholder="Type here..." />
-              </form>
-            </DrawerBody>
-
-            <DrawerFooter>
-              <Button type="submit" form="my-form">
-                Save
-              </Button>
-            </DrawerFooter>
-          </DrawerContent>
-        </Drawer>
+        <MedicalRecord isOpen={isOpen} onClose={onClose} />
+        <ControlsBar onOpen={onOpen} />
       </Grid>
     </Box>
   );

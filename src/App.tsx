@@ -7,11 +7,13 @@ import {
   VStack,
   Code,
   Grid,
-  theme,
+
 } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { Logo } from "./Logo";
 import AppRoutes from "./Routes";
+import theme from "./theme/theme";
+
 
 export const App = () => {
   return (
