@@ -22,7 +22,6 @@ const ControlsBar = ({ onOpen }: ControlsBarProps) => {
       direction="column"
       justify="flex-end"
       align="center"
-      position="fixed"
       bottom="0"
       left="1"
       right="1"
