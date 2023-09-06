@@ -58,11 +58,11 @@ const ControlsBar = () => {
       direction="column"
       justify="flex-end"
       align="center"
+      position="absolute"
       bottom="0"
       left="1"
       right="1"
-      width="100%"
-      height="100%"
+      height="95vh"
     >
       <HStack
         borderRadius="20px"
@@ -95,25 +95,23 @@ const ControlsBar = () => {
           />
         </Tooltip>
 
-            <IconButton
-              aria-label="More server options"
-              icon={<FaNotesMedical />}
-              variant="solid"
-              w="fit-content"
-              bg="#494949"
-              colorScheme="white"
-              onClick={openMedicalRecord}
-            />
+        <IconButton
+          aria-label="More server options"
+          icon={<FaNotesMedical />}
+          variant="solid"
+          w="fit-content"
+          bg="#494949"
+          colorScheme="white"
+          onClick={openMedicalRecord}
+        />
 
-
-            <IconButton
-              aria-label=""
-              icon={<MdChatBubble />}
-              bg="#494949"
-              colorScheme="white"
-              onClick={openChat}
-            />
-   
+        <IconButton
+          aria-label=""
+          icon={<MdChatBubble />}
+          bg="#494949"
+          colorScheme="white"
+          onClick={openChat}
+        />
       </HStack>
       {showMedicalRecord && (
         <MedicalRecord

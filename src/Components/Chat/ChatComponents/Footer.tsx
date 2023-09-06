@@ -37,7 +37,8 @@ const Footer: React.FC<FooterProps> = ({
 
       <IconButton
         ml={2}
-        colorScheme="blue"
+        color='white'
+        bg="#0078D7"
         aria-label="Search database"
         icon={<FiSend />}
         onClick={handleSendMessage}

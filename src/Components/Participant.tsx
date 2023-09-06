@@ -3,8 +3,6 @@ import { Box, Heading, VStack, Text, useDisclosure } from "@chakra-ui/react";
 import ControlsBar from "./ControlsBar";
 
 const Participant: React.FC = () => {
-
-
   return (
     <Box textAlign="center" bg="transparent" p={1} mb={20}>
       <Heading>Teste</Heading>
@@ -21,7 +19,7 @@ const Participant: React.FC = () => {
             Teste
           </Heading>
         </Box>
-        <ControlsBar /* onOpen={onOpen} isOpen={isOpen} onClose={onClose} */ />
+        <ControlsBar />
       </VStack>
     </Box>
   );

@@ -385,7 +385,7 @@ const MedicalRecord = ({ onClose, isOpen, onClick }: MedicalRecordProps) => {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button w="full" bg="cyan" color="gray">
+            <Button w="full" bg="#0078D7" color="white">
               Save
             </Button>
           </DrawerFooter>
