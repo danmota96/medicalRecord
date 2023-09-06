@@ -68,14 +68,7 @@ const MedicalRecord = ({ onClose, isOpen, onClick }: MedicalRecordProps) => {
     <>
       <Drawer placement="bottom" isOpen={isOpen} onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent
-          borderWidth="lg"
-          borderColor="blue"
-          borderRadius="lg"
-          mt={4}
-          mb={4}
-          h="95vh"
-        >
+        <DrawerContent borderRadius="lg" mt={4} mb={4} h="95vh">
           <DrawerCloseButton />
           <DrawerHeader>Medical Record</DrawerHeader>
 

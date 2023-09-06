@@ -8,6 +8,8 @@ import {
   Stack,
   Divider,
   Flex,
+  DrawerFooter,
+  DrawerBody,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Footer from "./ChatComponents/Footer";
@@ -45,33 +47,36 @@ const Chat = ({ onClose, isOpen, onClick }: ChatProps) => {
       setMessages((old) => [...old, { from: "computer", text: data }]);
     }, 1000);
   };
+
   return (
     <Drawer placement="bottom" isOpen={isOpen} onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent
-        borderWidth="lg"
-        borderColor="blue"
-        borderRadius="lg"
-        mt={4}
-        mb={4}
-        h="95vh"
-      >
-        <DrawerCloseButton />
+      <DrawerContent borderRadius="lg" mb={4} h="95vh">
         <DrawerHeader>
-          <Header />
+          <Text fontSize="lg" fontWeight="bold">
+            Ferin Patel
+          </Text>
+          <Text color="green.500" size="sm">
+            Online
+          </Text>
+          <DrawerCloseButton />
         </DrawerHeader>
-        <Flex w="100%" h="100vh" justify="center" align="center">
-          <Flex p={2} h="90%" flexDir="column">
-            <Divider />
-            <Messages messages={messages} />
-            <Divider />
-            <Footer
-              inputMessage={inputMessage}
-              setInputMessage={setInputMessage}
-              handleSendMessage={handleSendMessage}
-            />
+        <DrawerBody>
+          <Flex w="100%" justify="center" align="center">
+            <Flex h="90%" flexDir="column">
+              <Divider />
+              <Messages messages={messages} />
+              <Divider />
+            </Flex>
           </Flex>
-        </Flex>
+        </DrawerBody>
+        <DrawerFooter>
+          <Footer
+            inputMessage={inputMessage}
+            setInputMessage={setInputMessage}
+            handleSendMessage={handleSendMessage}
+          />
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

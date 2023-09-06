@@ -24,20 +24,19 @@ const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <Flex w="100%" mt="5">
+    <Flex w="100%">
       <Input
         placeholder="Message"
-        border="none"
-        borderRadius="none"
         _focus={{
-          border: "1px solid black",
+          border: "1px solid blue",
         }}
         onKeyPress={handleKeyPress}
         value={inputMessage}
         onChange={handleChange}
       />
-      
+
       <IconButton
+        ml={2}
         colorScheme="blue"
         aria-label="Search database"
         icon={<FiSend />}
