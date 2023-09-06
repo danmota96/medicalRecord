@@ -7,18 +7,6 @@ const Participant: React.FC = () => {
     <Box textAlign="center" bg="transparent" p={1} mb={20}>
       <Heading>Teste</Heading>
       <VStack>
-        <Box textAlign="left">
-          <Box
-            maxW="sm"
-            borderWidth="2px"
-            borderRadius="lg"
-            overflow="hidden"
-            borderColor="gray"
-          ></Box>
-          <Heading color="#fafafa" fontSize="16px" mt={1}>
-            Teste
-          </Heading>
-        </Box>
         <ControlsBar />
       </VStack>
     </Box>
