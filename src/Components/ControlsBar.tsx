@@ -7,16 +7,52 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { MdMic, MdMicOff, MdVideocam, MdVideocamOff } from "react-icons/md";
+import {
+  MdChatBubble,
+  MdMic,
+  MdMicOff,
+  MdVideocam,
+  MdVideocamOff,
+} from "react-icons/md";
 import { FiPhone } from "react-icons/fi";
 import { FaNotesMedical } from "react-icons/fa";
+import MedicalRecord from "./MedicalRecord";
+import Chat from "./Chat/Chat";
 
 interface ControlsBarProps {
   onOpen: () => void;
+  onClose: () => void;
+  isOpen: boolean;
 }
 
-const ControlsBar = ({ onOpen }: ControlsBarProps) => {
+const ControlsBar = () => {
+  const [showMedicalRecord, setShowMedicalRecord] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const openMedicalRecord = () => {
+    setShowMedicalRecord(true);
+    setShowChat(false);
+    onOpen();
+  };
+
+  const openChat = () => {
+    setShowChat(true);
+    setShowMedicalRecord(false);
+    onOpen();
+  };
+
+  // Impede a propagação do evento de clique nos componentes internos
+  const handleMedicalRecordClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
+  const handleChatClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <Flex
       direction="column"
@@ -41,6 +77,7 @@ const ControlsBar = ({ onOpen }: ControlsBarProps) => {
           bg="#EF4037"
           colorScheme="white"
         />
+
         <Tooltip label={""}>
           <IconButton
             aria-label=""
@@ -57,8 +94,7 @@ const ControlsBar = ({ onOpen }: ControlsBarProps) => {
             colorScheme="white"
           />
         </Tooltip>
-        <Popover placement="top" isLazy>
-          <PopoverTrigger>
+
             <IconButton
               aria-label="More server options"
               icon={<FaNotesMedical />}
@@ -66,23 +102,29 @@ const ControlsBar = ({ onOpen }: ControlsBarProps) => {
               w="fit-content"
               bg="#494949"
               colorScheme="white"
-              onClick={onOpen}
+              onClick={openMedicalRecord}
             />
-          </PopoverTrigger>
-          {/*      <PopoverContent css={{ all: "unset" }}>
-            {showMedicalRecord && (
-              <MedicalRecord>
-                <MedicalRecordContent
-                  roomName={roomName}
-                  patient={patient}
-                  patientId={patientId}
-              
-                />
-              </MedicalRecord>
-            )}
-          </PopoverContent> */}
-        </Popover>
+
+
+            <IconButton
+              aria-label=""
+              icon={<MdChatBubble />}
+              bg="#494949"
+              colorScheme="white"
+              onClick={openChat}
+            />
+   
       </HStack>
+      {showMedicalRecord && (
+        <MedicalRecord
+          isOpen={isOpen}
+          onClose={onClose}
+          onClick={handleMedicalRecordClick}
+        />
+      )}
+      {showChat && (
+        <Chat isOpen={isOpen} onClose={onClose} onClick={handleChatClick} />
+      )}
     </Flex>
   );
 };

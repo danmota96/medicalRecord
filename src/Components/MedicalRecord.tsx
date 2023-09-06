@@ -23,6 +23,7 @@ import { useState } from "react";
 interface MedicalRecordProps {
   isOpen: boolean;
   onClose: () => void;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface PatientInfoData {
@@ -44,7 +45,7 @@ export interface PatientInfoData {
   anotacoes: string;
 }
 
-const MedicalRecord = ({ onClose, isOpen }: MedicalRecordProps) => {
+const MedicalRecord = ({ onClose, isOpen, onClick }: MedicalRecordProps) => {
   const [medicalRecord, setMedicalRecord] = useState<PatientInfoData>({
     diagnosis: "",
     queixaprincipal: "",
